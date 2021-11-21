@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+}
+
+group = 'kluszynski.example.concurrency'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly 'org.slf4j:slf4j-api:1.7.32'
+    testImplementation 'org.slf4j:slf4j-simple:1.7.32'
+
+    compileOnly 'org.projectlombok:lombok:1.18.22'
+    annotationProcessor 'org.projectlombok:lombok:1.18.22'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+    testImplementation 'org.assertj:assertj-core:3.21.0'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+test {
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+
+tasks.register("which-java") {
+    doLast {
+        println System.getProperty("java.home")
+    }
+}
