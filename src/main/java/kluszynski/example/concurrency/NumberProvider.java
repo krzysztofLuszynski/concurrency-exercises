@@ -6,14 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
-public class NumberProducer {
+public class NumberProvider {
     private final List<Long> numbers = new ArrayList<>();
     private final Long startNumber;
     private final Long step;
     private final Long itemNumber;
     private volatile boolean finished = false;
 
-    public NumberProducer(Long startNumber, Long step, Long itemNumber) {
+    public NumberProvider(Long startNumber, Long step, Long itemNumber) {
         this.startNumber = startNumber;
         this.step = step;
         this.itemNumber = itemNumber;

@@ -1,4 +1,4 @@
-package kluszynski.example.concurrency.thread.single;
+package kluszynski.example.concurrency.future;
 
 import kluszynski.example.concurrency.NumberGenerator;
 import kluszynski.example.concurrency.NumberProvider;
@@ -8,11 +8,11 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class SingleThreadGeneratorTest {
+class FutureGeneratorTest {
     @Test
     void test() {
         NumberProvider numberProvider = new NumberProvider(1L, 1L, 9L);
-        NumberGenerator numberGenerator = new SingleThreadGenerator(numberProvider);
+        NumberGenerator numberGenerator = new FutureGenerator(numberProvider);
 
         List<Long> numbers = numberGenerator.generate();
 
