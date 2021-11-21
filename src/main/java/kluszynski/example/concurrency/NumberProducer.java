@@ -11,6 +11,7 @@ public class NumberProducer {
     private final Long startNumber;
     private final Long step;
     private final Long itemNumber;
+    private volatile boolean finished = false;
 
     public NumberProducer(Long startNumber, Long step, Long itemNumber) {
         this.startNumber = startNumber;
@@ -26,7 +27,12 @@ public class NumberProducer {
             numbers.add(number);
         }
 
+        finished = true;
         log.debug("Generated numbers successfully");
+    }
+
+    public boolean isFinished() {
+        return finished;
     }
 
     public List<Long> getNumbers() {
